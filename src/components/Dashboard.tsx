@@ -23,8 +23,12 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
     plan.gender === userGender || plan.gender === 'both'
   ) || workoutPlans[0]
   
-  // Obter o dia da semana atual
-  const currentDay = new Date().toLocaleDateString('pt-BR', { weekday: 'long' }).toLowerCase()
+  // Obter o dia da semana atual e remover "-feira" se existir
+  const currentDay = new Date()
+    .toLocaleDateString('pt-BR', { weekday: 'long' })
+    .toLowerCase()
+    .replace('-feira', '') // Remove "-feira" de "segunda-feira" -> "segunda"
+  
   const todayWorkout = userWorkoutPlan.schedule[currentDay]
   
   const renderContent = () => {
@@ -45,6 +49,10 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
                       day: 'numeric', 
                       month: 'long' 
                     })}
+                  </p>
+                  {/* Debug info - remover em produção */}
+                  <p className="text-xs text-ios-gray-400 mt-1">
+                    Debug: Dia detectado = "{currentDay}"
                   </p>
                 </div>
                 <div className="text-right">

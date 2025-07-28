@@ -19,7 +19,11 @@ export default function WorkoutPlan({ plan, userGender }: WorkoutPlanProps) {
     { key: 'domingo', name: 'Domingo', short: 'DOM' }
   ]
 
-  const currentDay = new Date().toLocaleDateString('pt-BR', { weekday: 'long' }).toLowerCase()
+  // Corrigir detecção do dia atual
+  const currentDay = new Date()
+    .toLocaleDateString('pt-BR', { weekday: 'long' })
+    .toLowerCase()
+    .replace('-feira', '') // Remove "-feira" de "segunda-feira" -> "segunda"
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
