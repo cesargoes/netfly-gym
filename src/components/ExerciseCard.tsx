@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { ChevronDown, ChevronUp, X, Loader2, ExternalLink, RefreshCw } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronDown, ChevronUp, X } from 'lucide-react'
 import type { Exercise } from '@/data/exercises'
 
 interface ExerciseCardProps {
@@ -11,59 +11,19 @@ interface ExerciseCardProps {
 export default function ExerciseCard({ exercise }: ExerciseCardProps) {
   const [showTips, setShowTips] = useState(false)
   const [showImageModal, setShowImageModal] = useState(false)
-  const [currentSearchIndex, setCurrentSearchIndex] = useState(0)
-  const [iframeError, setIframeError] = useState(false)
-  const [loading, setLoading] = useState(false)
-
-  // Diferentes tipos de busca para tentar
-  const searchQueries = [
-    `${exercise.name} exercício academia`,
-    `${exercise.name} como fazer tutorial`,
-    `${exercise.name} gym exercise demonstration`,
-    `${exercise.name} fitness workout tutorial`,
-    `how to do ${exercise.name} exercise`,
-    `${exercise.name} form technique gym`
-  ]
 
   const openImageModal = () => {
     setShowImageModal(true)
-    setIframeError(false)
-    setLoading(true)
-    setCurrentSearchIndex(0)
   }
 
   const closeModal = () => {
     setShowImageModal(false)
-    setIframeError(false)
-    setLoading(false)
   }
 
-  const tryNextSearch = () => {
-    if (currentSearchIndex < searchQueries.length - 1) {
-      setCurrentSearchIndex(currentSearchIndex + 1)
-      setIframeError(false)
-      setLoading(true)
-    }
-  }
-
-  const getCurrentUrl = () => {
-    const query = searchQueries[currentSearchIndex]
+  // URL otimizada para Google Images
+  const getGoogleImagesUrl = () => {
+    const query = `${exercise.name} exercício academia como fazer`
     return `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}&igu=1`
-  }
-
-  const handleIframeLoad = () => {
-    setLoading(false)
-  }
-
-  const handleIframeError = () => {
-    setLoading(false)
-    setIframeError(true)
-  }
-
-  // Função para abrir em nova aba como fallback
-  const openInNewTab = () => {
-    window.open(getCurrentUrl(), '_blank')
-    closeModal()
   }
 
   return (
@@ -173,101 +133,33 @@ export default function ExerciseCard({ exercise }: ExerciseCardProps) {
         </div>
       </div>
 
-      {/* Modal com Google Images Iframe */}
+      {/* Modal Simplificado com Google Images */}
       {showImageModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-ios max-w-6xl w-full max-h-[95vh] flex flex-col">
+          <div className="bg-white rounded-ios max-w-6xl w-full max-h-[95vh] flex flex-col relative">
+            {/* Botão Fechar FIXO - sempre visível */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white hover:bg-gray-100 rounded-full shadow-lg flex items-center justify-center transition-colors border border-gray-200"
+              style={{ position: 'fixed' }}
+            >
+              <X size={20} className="text-gray-600" />
+            </button>
+
             {/* Header do Modal */}
-            <div className="flex items-center justify-between p-4 border-b">
-              <div className="flex items-center gap-3">
-                <h3 className="text-lg font-semibold text-gray-900">
-                  🔍 Imagens: {exercise.name}
-                </h3>
-                <div className="text-sm text-gray-500">
-                  Busca {currentSearchIndex + 1} de {searchQueries.length}
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                {/* Botão Tentar Próxima Busca */}
-                {(iframeError || currentSearchIndex < searchQueries.length - 1) && (
-                  <button
-                    onClick={tryNextSearch}
-                    disabled={currentSearchIndex >= searchQueries.length - 1}
-                    className="px-3 py-1 bg-orange-500 text-white rounded-ios text-sm flex items-center gap-1 hover:bg-orange-600 disabled:bg-gray-300 transition-colors"
-                  >
-                    <RefreshCw size={14} />
-                    Tentar Outra
-                  </button>
-                )}
-                {/* Botão Abrir no Google */}
-                <button
-                  onClick={openInNewTab}
-                  className="px-3 py-1 bg-blue-500 text-white rounded-ios text-sm flex items-center gap-1 hover:bg-blue-600 transition-colors"
-                >
-                  <ExternalLink size={14} />
-                  Abrir Google
-                </button>
-                {/* Botão Fechar */}
-                <button
-                  onClick={closeModal}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                >
-                  <X size={20} className="text-gray-500" />
-                </button>
-              </div>
+            <div className="flex items-center justify-between p-4 border-b bg-white">
+              <h3 className="text-lg font-semibold text-gray-900">
+                🔍 {exercise.name} - Google Images
+              </h3>
+              <div className="w-10"></div> {/* Espaço para o botão X */}
             </div>
             
-            {/* Conteúdo do Modal */}
-            <div className="flex-1 relative">
-              {loading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
-                  <div className="text-center">
-                    <Loader2 className="animate-spin text-ios-blue-500 mb-4 mx-auto" size={48} />
-                    <p className="text-gray-600">Tentando carregar Google Images...</p>
-                    <p className="text-sm text-gray-500 mt-2">
-                      Busca atual: "{searchQueries[currentSearchIndex]}"
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {iframeError && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
-                  <div className="text-center p-8">
-                    <div className="text-4xl mb-4">🚫</div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                      Google Images bloqueou o acesso
-                    </h4>
-                    <p className="text-gray-600 mb-4">
-                      O Google não permite mostrar suas imagens dentro de outros sites.
-                    </p>
-                    <div className="space-y-2">
-                      <button
-                        onClick={tryNextSearch}
-                        disabled={currentSearchIndex >= searchQueries.length - 1}
-                        className="block w-full px-4 py-2 bg-orange-500 text-white rounded-ios hover:bg-orange-600 disabled:bg-gray-300 transition-colors"
-                      >
-                        Tentar Busca Diferente
-                      </button>
-                      <button
-                        onClick={openInNewTab}
-                        className="block w-full px-4 py-2 bg-blue-500 text-white rounded-ios hover:bg-blue-600 transition-colors"
-                      >
-                        Abrir Google Images em Nova Aba
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Iframe do Google Images */}
+            {/* Google Images Iframe */}
+            <div className="flex-1">
               <iframe
-                key={currentSearchIndex} // Força re-render quando muda busca
-                src={getCurrentUrl()}
+                src={getGoogleImagesUrl()}
                 className="w-full h-full border-0"
                 title={`Google Images - ${exercise.name}`}
-                onLoad={handleIframeLoad}
-                onError={handleIframeError}
                 sandbox="allow-scripts allow-same-origin allow-top-navigation allow-forms"
                 referrerPolicy="no-referrer"
                 style={{ minHeight: '500px' }}
@@ -275,15 +167,10 @@ export default function ExerciseCard({ exercise }: ExerciseCardProps) {
             </div>
             
             {/* Footer do Modal */}
-            <div className="p-3 border-t bg-gray-50 rounded-b-ios">
-              <div className="flex items-center justify-between text-sm text-gray-600">
-                <div>
-                  💡 <strong>Dica:</strong> Se não carregar, clique em "Abrir Google" ou "Tentar Outra"
-                </div>
-                <div className="text-xs">
-                  Buscando por: "{searchQueries[currentSearchIndex]}"
-                </div>
-              </div>
+            <div className="p-3 border-t bg-gray-50">
+              <p className="text-sm text-gray-600 text-center">
+                💪 <strong>Google Images:</strong> Imagens e vídeos sobre como executar o exercício
+              </p>
             </div>
           </div>
         </div>
