@@ -8,7 +8,6 @@ export interface Exercise {
   restTime: string
   difficulty: 'iniciante' | 'intermediário' | 'avançado'
   equipment: string[]
-  gifUrl: string
   tips: string[]
   gender?: 'male' | 'female' | 'both'
 }
@@ -50,7 +49,6 @@ export const exercises: Exercise[] = [
     restTime: '90 segundos',
     difficulty: 'intermediário',
     equipment: ['Banco reto', 'Barra', 'Anilhas'],
-    gifUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Mantenha os ombros retraídos durante todo movimento',
       'Não faça barra quicar no peito',
@@ -73,7 +71,6 @@ export const exercises: Exercise[] = [
     restTime: '75 segundos',
     difficulty: 'intermediário',
     equipment: ['Banco inclinado', 'Halteres'],
-    gifUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Inclinação ideal entre 30-45 graus',
       'Movimento deve ser fluido e controlado',
@@ -96,7 +93,6 @@ export const exercises: Exercise[] = [
     restTime: '60 segundos',
     difficulty: 'iniciante',
     equipment: ['Máquina Pec Deck'],
-    gifUrl: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Mantenha sempre tensão no músculo',
       'Evite movimentos bruscos',
@@ -121,7 +117,6 @@ export const exercises: Exercise[] = [
     restTime: '90 segundos',
     difficulty: 'intermediário',
     equipment: ['Máquina de puxada', 'Barra'],
-    gifUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Puxe com as costas, não apenas com os braços',
       'Mantenha o peito estufado',
@@ -144,7 +139,6 @@ export const exercises: Exercise[] = [
     restTime: '75 segundos',
     difficulty: 'intermediário',
     equipment: ['Máquina de polia', 'Cabo com pegador'],
-    gifUrl: 'https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Mantenha as costas retas durante todo movimento',
       'Foque em "juntar" as escápulas',
@@ -169,7 +163,6 @@ export const exercises: Exercise[] = [
     restTime: '90 segundos',
     difficulty: 'iniciante',
     equipment: ['Máquina Leg Press'],
-    gifUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Desça até 90 graus nos joelhos',
       'Mantenha os pés paralelos',
@@ -192,7 +185,6 @@ export const exercises: Exercise[] = [
     restTime: '60 segundos',
     difficulty: 'iniciante',
     equipment: ['Cadeira extensora'],
-    gifUrl: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Movimento deve ser fluido e controlado',
       'Pause 1 segundo na contração máxima',
@@ -215,7 +207,6 @@ export const exercises: Exercise[] = [
     restTime: '60 segundos',
     difficulty: 'iniciante',
     equipment: ['Mesa flexora'],
-    gifUrl: 'https://images.unsplash.com/photo-1434608519344-49d77a699e1d?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Mantenha os quadris apoiados na mesa',
       'Evite arquear as costas',
@@ -238,7 +229,6 @@ export const exercises: Exercise[] = [
     restTime: '45 segundos',
     difficulty: 'iniciante',
     equipment: ['Aparelho para panturrilha'],
-    gifUrl: 'https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Amplitude completa de movimento',
       'Pause na contração máxima',
@@ -263,7 +253,6 @@ export const exercises: Exercise[] = [
     restTime: '75 segundos',
     difficulty: 'intermediário',
     equipment: ['Máquina de desenvolvimento'],
-    gifUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Mantenha o core contraído',
       'Não force além da amplitude natural',
@@ -286,7 +275,6 @@ export const exercises: Exercise[] = [
     restTime: '60 segundos',
     difficulty: 'iniciante',
     equipment: ['Máquina de elevação lateral'],
-    gifUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Não eleve além da linha dos ombros',
       'Movimento lento e controlado',
@@ -311,7 +299,6 @@ export const exercises: Exercise[] = [
     restTime: '60 segundos',
     difficulty: 'iniciante',
     equipment: ['Polia baixa', 'Barra reta'],
-    gifUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Mantenha os cotovelos fixos ao lado do corpo',
       'Movimento deve ser apenas dos antebraços',
@@ -334,7 +321,6 @@ export const exercises: Exercise[] = [
     restTime: '60 segundos',
     difficulty: 'iniciante',
     equipment: ['Polia alta', 'Barra ou corda'],
-    gifUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Cotovelos sempre fixos ao lado do corpo',
       'Estenda completamente os braços',
@@ -359,7 +345,6 @@ export const exercises: Exercise[] = [
     restTime: '75 segundos',
     difficulty: 'intermediário',
     equipment: ['Banco', 'Barra', 'Proteção para quadril'],
-    gifUrl: 'https://images.unsplash.com/photo-1434608519344-49d77a699e1d?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Contraia bem os glúteos no topo',
       'Mantenha os joelhos estáveis',
@@ -382,7 +367,6 @@ export const exercises: Exercise[] = [
     restTime: '60 segundos',
     difficulty: 'iniciante',
     equipment: ['Máquina de abdução'],
-    gifUrl: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Movimento lento e controlado',
       'Foque na contração dos glúteos',
@@ -407,7 +391,6 @@ export const exercises: Exercise[] = [
     restTime: 'Conforme protocolo',
     difficulty: 'intermediário',
     equipment: ['Esteira elétrica'],
-    gifUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Mantenha hidratação durante o treino',
       'Ajuste inclinação para maior intensidade',
@@ -430,7 +413,6 @@ export const exercises: Exercise[] = [
     restTime: 'N/A',
     difficulty: 'iniciante',
     equipment: ['Máquina elíptica'],
-    gifUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80',
     tips: [
       'Mantenha postura ereta',
       'Use tanto braços quanto pernas',
