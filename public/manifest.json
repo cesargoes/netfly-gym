@@ -1,0 +1,21 @@
+{
+  "name": "Netfly Gym - Personal Trainer Digital",
+  "short_name": "Netfly Gym",
+  "description": "Seu personal trainer digital focado em perda de peso",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F2F2F7",
+  "theme_color": "#007AFF",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "pt-BR",
+  "categories": ["health", "fitness", "lifestyle"],
+  "shortcuts": [
+    {
+      "name": "Treino de Hoje",
+      "short_name": "Hoje",
+      "description": "Ver o treino programado para hoje",
+      "url": "/?utm_source=homescreen"
+    }
+  ]
+} 
