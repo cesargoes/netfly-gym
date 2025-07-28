@@ -32,278 +32,437 @@ export interface WorkoutPlan {
   }
 }
 
-// Exercícios baseados na pesquisa sobre treinos eficazes para perda de peso
+// Exercícios com aparelhos de academia para perda de peso
 export const exercises: Exercise[] = [
-  // EXERCÍCIOS COMPOSTOS PARA PERDA DE PESO
+  // EXERCÍCIOS PARA PEITO
   {
-    id: 'burpees',
-    name: 'Burpees',
-    targetMuscles: ['Corpo inteiro', 'Cardio'],
+    id: 'bench_press',
+    name: 'Supino Reto',
+    targetMuscles: ['Peitoral', 'Tríceps', 'Ombros'],
     instructions: [
-      'Fique em pé com os pés afastados na largura dos ombros',
-      'Agache e apoie as mãos no chão',
-      'Salte com os pés para trás em posição de prancha',
-      'Faça uma flexão (opcional para iniciantes)',
-      'Salte com os pés de volta para perto das mãos',
-      'Salte para cima com os braços estendidos'
+      'Deite no banco com os pés firmes no chão',
+      'Segure a barra um pouco mais larga que os ombros',
+      'Desça a barra até tocar o peito',
+      'Empurre a barra de volta à posição inicial',
+      'Mantenha as escápulas retraídas'
     ],
     sets: 3,
-    reps: '8-15',
-    restTime: '45-60 seg',
+    reps: '8-12',
+    restTime: '60-90 seg',
     difficulty: 'intermediário',
-    equipment: ['Peso corporal'],
-    gifUrl: 'https://media.giphy.com/media/2A75RyXVzzSI2bx4Gj/giphy.gif',
+    equipment: ['Banco', 'Barra', 'Anilhas'],
+    gifUrl: 'https://media.giphy.com/media/1qfDU4MJv9xoGtEKT8/giphy.gif',
     tips: [
-      'Mantenha o core sempre contraído',
-      'Se for iniciante, retire o salto final',
-      'Mantenha a respiração constante'
+      'Não arqueie excessivamente as costas',
+      'Mantenha os pés firmes no chão',
+      'Controle a descida da barra'
     ],
     gender: 'both'
   },
   {
-    id: 'squat_jump',
-    name: 'Agachamento com Salto',
-    targetMuscles: ['Quadríceps', 'Glúteos', 'Panturrilhas'],
+    id: 'incline_dumbbell_press',
+    name: 'Supino Inclinado com Halteres',
+    targetMuscles: ['Peitoral Superior', 'Ombros', 'Tríceps'],
     instructions: [
-      'Fique em pé com os pés afastados na largura dos ombros',
-      'Agache descendo o quadril para trás',
-      'Exploda para cima com um salto',
-      'Aterrisse suavemente e repita o movimento'
-    ],
-    sets: 3,
-    reps: '12-20',
-    restTime: '30-45 seg',
-    difficulty: 'iniciante',
-    equipment: ['Peso corporal'],
-    gifUrl: 'https://media.giphy.com/media/l0HlPystfePnAI3G8/giphy.gif',
-    tips: [
-      'Aterrisse com os joelhos levemente flexionados',
-      'Mantenha o peito erguido',
-      'Use os braços para dar impulso'
-    ],
-    gender: 'both'
-  },
-  {
-    id: 'mountain_climbers',
-    name: 'Escalador',
-    targetMuscles: ['Core', 'Ombros', 'Cardio'],
-    instructions: [
-      'Inicie em posição de prancha',
-      'Traga um joelho em direção ao peito',
-      'Alterne rapidamente as pernas',
-      'Mantenha o core contraído o tempo todo'
-    ],
-    sets: 3,
-    reps: '20-30 (cada perna)',
-    restTime: '30-45 seg',
-    difficulty: 'iniciante',
-    equipment: ['Peso corporal'],
-    gifUrl: 'https://media.giphy.com/media/3CZ2iGe1ByKfhZxaD7/giphy.gif',
-    tips: [
-      'Mantenha os quadris estáveis',
-      'Não deixe o quadril subir muito',
-      'Movimento controlado, mesmo que rápido'
-    ],
-    gender: 'both'
-  },
-  {
-    id: 'pushup',
-    name: 'Flexão de Braços',
-    targetMuscles: ['Peitoral', 'Tríceps', 'Ombros', 'Core'],
-    instructions: [
-      'Posição de prancha com mãos um pouco mais largas que os ombros',
-      'Desça o corpo mantendo-o alinhado',
-      'Empurre de volta à posição inicial',
+      'Ajuste o banco em 30-45 graus',
+      'Segure os halteres com pegada pronada',
+      'Desça os halteres até a linha do peito',
+      'Empurre os halteres para cima',
       'Mantenha o core contraído'
     ],
     sets: 3,
-    reps: '8-15',
-    restTime: '45-60 seg',
-    difficulty: 'intermediário',
-    equipment: ['Peso corporal'],
+    reps: '10-15',
+    restTime: '60 seg',
+    difficulty: 'iniciante',
+    equipment: ['Banco Inclinado', 'Halteres'],
+    gifUrl: 'https://media.giphy.com/media/2A75RyXVzzSI2bx4Gj/giphy.gif',
+    tips: [
+      'Não desça os halteres muito baixo',
+      'Mantenha os cotovelos levemente para dentro',
+      'Foque na contração do peitoral'
+    ],
+    gender: 'both'
+  },
+  {
+    id: 'pec_deck',
+    name: 'Voador (Pec Deck)',
+    targetMuscles: ['Peitoral'],
+    instructions: [
+      'Ajuste o assento para a altura correta',
+      'Apoie as costas no encosto',
+      'Segure as alças ou apoie os braços',
+      'Traga os braços para frente contraindo o peitoral',
+      'Retorne controladamente'
+    ],
+    sets: 3,
+    reps: '12-15',
+    restTime: '45 seg',
+    difficulty: 'iniciante',
+    equipment: ['Máquina Voador'],
+    gifUrl: 'https://media.giphy.com/media/l0HlPystfePnAI3G8/giphy.gif',
+    tips: [
+      'Não force demais a amplitude',
+      'Mantenha os ombros para trás',
+      'Foque na contração no meio do movimento'
+    ],
+    gender: 'both'
+  },
+
+  // EXERCÍCIOS PARA COSTAS
+  {
+    id: 'lat_pulldown',
+    name: 'Puxada na Polia Alta',
+    targetMuscles: ['Latíssimo', 'Bíceps', 'Romboides'],
+    instructions: [
+      'Sente-se no aparelho e ajuste a almofada das coxas',
+      'Segure a barra com pegada ampla',
+      'Puxe a barra em direção ao peito',
+      'Contraia as escápulas',
+      'Retorne controladamente'
+    ],
+    sets: 3,
+    reps: '10-12',
+    restTime: '60-90 seg',
+    difficulty: 'iniciante',
+    equipment: ['Polia Alta', 'Barra'],
+    gifUrl: 'https://media.giphy.com/media/3CZ2iGe1ByKfhZxaD7/giphy.gif',
+    tips: [
+      'Não use impulso do corpo',
+      'Foque em puxar com as costas, não com os braços',
+      'Mantenha o peito erguido'
+    ],
+    gender: 'both'
+  },
+  {
+    id: 'seated_cable_row',
+    name: 'Remada Sentado na Polia',
+    targetMuscles: ['Romboides', 'Latíssimo', 'Bíceps'],
+    instructions: [
+      'Sente-se no banco da remada',
+      'Segure o cabo com pegada neutra',
+      'Puxe o cabo em direção ao abdômen',
+      'Contraia as escápulas',
+      'Retorne estendendo os braços'
+    ],
+    sets: 3,
+    reps: '10-15',
+    restTime: '60 seg',
+    difficulty: 'iniciante',
+    equipment: ['Polia Baixa', 'Cabo', 'Banco'],
     gifUrl: 'https://media.giphy.com/media/SVcsGOgpUP3NniEHBN/giphy.gif',
     tips: [
-      'Para iniciantes: apoie os joelhos no chão',
-      'Mantenha o corpo reto como uma prancha',
-      'Desça até o peito quase tocar o chão'
+      'Mantenha as costas eretas',
+      'Não balance o tronco',
+      'Foque na contração das escápulas'
     ],
     gender: 'both'
   },
+
+  // EXERCÍCIOS PARA PERNAS
   {
-    id: 'jumping_jacks',
-    name: 'Polichinelos',
-    targetMuscles: ['Corpo inteiro', 'Cardio'],
+    id: 'leg_press',
+    name: 'Leg Press',
+    targetMuscles: ['Quadríceps', 'Glúteos'],
     instructions: [
-      'Fique em pé com pés juntos e braços ao lado do corpo',
-      'Salte abrindo as pernas e levantando os braços',
-      'Salte de volta à posição inicial',
-      'Mantenha o ritmo constante'
+      'Sente-se no leg press com as costas apoiadas',
+      'Posicione os pés na plataforma na largura dos ombros',
+      'Desça controladamente flexionando os joelhos',
+      'Empurre a plataforma de volta',
+      'Não trave completamente os joelhos'
     ],
     sets: 3,
-    reps: '30-60 seg',
-    restTime: '30-45 seg',
+    reps: '12-20',
+    restTime: '90 seg',
     difficulty: 'iniciante',
-    equipment: ['Peso corporal'],
+    equipment: ['Leg Press'],
     gifUrl: 'https://media.giphy.com/media/l41lO8vRXzSB0CkqQ/giphy.gif',
     tips: [
-      'Aterrisse suavemente',
-      'Mantenha os joelhos levemente flexionados',
-      'Braços devem subir completamente'
+      'Não desça além de 90 graus nos joelhos',
+      'Mantenha os joelhos alinhados com os pés',
+      'Use amplitude completa controlada'
     ],
     gender: 'both'
   },
-  
-  // EXERCÍCIOS FOCADOS EM FORÇA E RESISTÊNCIA
   {
-    id: 'plank',
-    name: 'Prancha',
-    targetMuscles: ['Core', 'Ombros', 'Glúteos'],
+    id: 'leg_extension',
+    name: 'Cadeira Extensora',
+    targetMuscles: ['Quadríceps'],
     instructions: [
-      'Apoie-se nos antebraços e pés',
-      'Mantenha o corpo reto como uma prancha',
-      'Contraia o core e respire normalmente',
-      'Segure a posição pelo tempo determinado'
+      'Ajuste o encosto e a almofada da perna',
+      'Sente-se com as costas bem apoiadas',
+      'Estenda as pernas contraindo o quadríceps',
+      'Pause no topo por 1 segundo',
+      'Retorne controladamente'
     ],
     sets: 3,
-    reps: '30-60 seg',
-    restTime: '45-60 seg',
+    reps: '12-15',
+    restTime: '45 seg',
     difficulty: 'iniciante',
-    equipment: ['Peso corporal'],
+    equipment: ['Cadeira Extensora'],
     gifUrl: 'https://media.giphy.com/media/3o7qE1YN7aBOFPRw8E/giphy.gif',
     tips: [
-      'Não deixe o quadril cair ou subir muito',
-      'Mantenha a respiração constante',
-      'Olhe para o chão para manter o pescoço neutro'
+      'Não use impulso',
+      'Contraia bem o quadríceps no topo',
+      'Mantenha as costas apoiadas'
     ],
     gender: 'both'
   },
   {
-    id: 'lunges',
-    name: 'Afundo',
-    targetMuscles: ['Quadríceps', 'Glúteos', 'Core'],
+    id: 'leg_curl',
+    name: 'Mesa Flexora',
+    targetMuscles: ['Posteriores de Coxa'],
     instructions: [
-      'Dê um passo largo para frente',
-      'Desça flexionando ambos os joelhos',
-      'O joelho da frente não deve passar da ponta do pé',
-      'Volte à posição inicial e alterne as pernas'
+      'Deite de bruços na mesa flexora',
+      'Posicione a almofada atrás dos calcanhares',
+      'Flexione as pernas trazendo os calcanhares em direção aos glúteos',
+      'Contraia os posteriores no topo',
+      'Retorne controladamente'
     ],
     sets: 3,
-    reps: '10-15 (cada perna)',
-    restTime: '45-60 seg',
+    reps: '12-15',
+    restTime: '45 seg',
     difficulty: 'iniciante',
-    equipment: ['Peso corporal'],
-    gifUrl: 'https://media.giphy.com/media/1qfDU4MJv9xoGtEKT8/giphy.gif',
+    equipment: ['Mesa Flexora'],
+    gifUrl: 'https://media.giphy.com/media/l0ExayQDzrI2xOb8A/giphy.gif',
     tips: [
-      'Mantenha o tronco ereto',
-      'Distribua o peso igualmente entre as duas pernas',
-      'Desça até formar ângulos de 90° nos joelhos'
+      'Mantenha os quadris pressionados na mesa',
+      'Não levante o tronco',
+      'Contraia bem os posteriores'
     ],
     gender: 'both'
   },
-  
-  // EXERCÍCIOS ESPECÍFICOS PARA MULHERES (foco em glúteos e pernas)
   {
-    id: 'glute_bridge',
-    name: 'Ponte para Glúteos',
-    targetMuscles: ['Glúteos', 'Posteriores de coxa'],
+    id: 'calf_raise_machine',
+    name: 'Panturrilha no Aparelho',
+    targetMuscles: ['Panturrilhas'],
     instructions: [
-      'Deite-se de costas com joelhos flexionados',
-      'Levante o quadril contraindo os glúteos',
-      'Forme uma linha reta dos joelhos aos ombros',
-      'Desça controladamente e repita'
+      'Posicione-se no aparelho de panturrilha',
+      'Apoie a parte anterior dos pés na plataforma',
+      'Desça os calcanhares alongando as panturrilhas',
+      'Suba na ponta dos pés contraindo as panturrilhas',
+      'Mantenha a contração no topo'
+    ],
+    sets: 4,
+    reps: '15-20',
+    restTime: '30 seg',
+    difficulty: 'iniciante',
+    equipment: ['Aparelho de Panturrilha'],
+    gifUrl: 'https://media.giphy.com/media/l41lFw057lAJQMwg0/giphy.gif',
+    tips: [
+      'Use amplitude completa de movimento',
+      'Pause na contração máxima',
+      'Não balance o corpo'
+    ],
+    gender: 'both'
+  },
+
+  // EXERCÍCIOS PARA OMBROS
+  {
+    id: 'shoulder_press_machine',
+    name: 'Desenvolvimento na Máquina',
+    targetMuscles: ['Ombros', 'Tríceps'],
+    instructions: [
+      'Ajuste o assento na altura correta',
+      'Segure as alças com pegada pronada',
+      'Empurre as alças para cima',
+      'Não trave completamente os cotovelos',
+      'Retorne controladamente'
     ],
     sets: 3,
-    reps: '15-25',
-    restTime: '30-45 seg',
+    reps: '10-12',
+    restTime: '60 seg',
     difficulty: 'iniciante',
-    equipment: ['Peso corporal'],
+    equipment: ['Máquina de Desenvolvimento'],
+    gifUrl: 'https://media.giphy.com/media/l0MYxei0lC8IUrleU/giphy.gif',
+    tips: [
+      'Mantenha as costas apoiadas',
+      'Não force os ombros além da amplitude natural',
+      'Controle o movimento'
+    ],
+    gender: 'both'
+  },
+  {
+    id: 'lateral_raise_machine',
+    name: 'Elevação Lateral na Máquina',
+    targetMuscles: ['Ombros Laterais'],
+    instructions: [
+      'Ajuste a altura do assento',
+      'Apoie os braços nas almofadas',
+      'Eleve os braços lateralmente',
+      'Contraia os ombros no topo',
+      'Retorne controladamente'
+    ],
+    sets: 3,
+    reps: '12-15',
+    restTime: '45 seg',
+    difficulty: 'iniciante',
+    equipment: ['Máquina de Elevação Lateral'],
+    gifUrl: 'https://media.giphy.com/media/2A75RyXVzzSI2bx4Gj/giphy.gif',
+    tips: [
+      'Não eleve além da linha dos ombros',
+      'Mantenha os ombros para baixo',
+      'Movimento controlado'
+    ],
+    gender: 'both'
+  },
+
+  // EXERCÍCIOS PARA BRAÇOS
+  {
+    id: 'cable_bicep_curl',
+    name: 'Rosca Direta na Polia',
+    targetMuscles: ['Bíceps'],
+    instructions: [
+      'Fique de pé em frente à polia baixa',
+      'Segure a barra com pegada supinada',
+      'Flexione os braços contraindo os bíceps',
+      'Mantenha os cotovelos fixos',
+      'Retorne controladamente'
+    ],
+    sets: 3,
+    reps: '12-15',
+    restTime: '45 seg',
+    difficulty: 'iniciante',
+    equipment: ['Polia Baixa', 'Barra'],
+    gifUrl: 'https://media.giphy.com/media/3CZ2iGe1ByKfhZxaD7/giphy.gif',
+    tips: [
+      'Não balance o corpo',
+      'Mantenha os cotovelos junto ao corpo',
+      'Contraia bem os bíceps no topo'
+    ],
+    gender: 'both'
+  },
+  {
+    id: 'tricep_pushdown',
+    name: 'Tríceps na Polia Alta',
+    targetMuscles: ['Tríceps'],
+    instructions: [
+      'Fique de pé em frente à polia alta',
+      'Segure a corda ou barra',
+      'Empurre para baixo estendendo os braços',
+      'Mantenha os cotovelos fixos',
+      'Contraia os tríceps na extensão completa'
+    ],
+    sets: 3,
+    reps: '12-15',
+    restTime: '45 seg',
+    difficulty: 'iniciante',
+    equipment: ['Polia Alta', 'Corda ou Barra'],
+    gifUrl: 'https://media.giphy.com/media/l0HlPystfePnAI3G8/giphy.gif',
+    tips: [
+      'Mantenha os cotovelos junto ao corpo',
+      'Não use o peso do corpo',
+      'Estenda completamente os braços'
+    ],
+    gender: 'both'
+  },
+
+  // EXERCÍCIOS ESPECÍFICOS PARA MULHERES (foco glúteos)
+  {
+    id: 'hip_thrust_machine',
+    name: 'Elevação de Quadril na Máquina',
+    targetMuscles: ['Glúteos', 'Posteriores'],
+    instructions: [
+      'Posicione-se na máquina de glúteos',
+      'Apoie as costas no banco',
+      'Empurre com os calcanhares elevando o quadril',
+      'Contraia fortemente os glúteos no topo',
+      'Retorne controladamente'
+    ],
+    sets: 3,
+    reps: '15-20',
+    restTime: '60 seg',
+    difficulty: 'iniciante',
+    equipment: ['Máquina de Glúteos'],
     gifUrl: 'https://media.giphy.com/media/3o7TKqm1mNujcBPSpy/giphy.gif',
     tips: [
-      'Contraia bem os glúteos no topo',
+      'Foque na contração dos glúteos',
       'Não arqueie as costas excessivamente',
-      'Mantenha os pés bem apoiados'
+      'Mantenha os joelhos alinhados'
     ],
     gender: 'female'
   },
   {
-    id: 'wall_sit',
-    name: 'Agachamento na Parede',
-    targetMuscles: ['Quadríceps', 'Glúteos'],
+    id: 'abductor_machine',
+    name: 'Abdução na Máquina',
+    targetMuscles: ['Glúteo Médio', 'Abdutores'],
     instructions: [
-      'Encoste as costas na parede',
-      'Desça até formar ângulo de 90° nos joelhos',
-      'Mantenha a posição pelo tempo determinado',
-      'Mantenha os pés afastados na largura dos ombros'
+      'Sente-se na máquina abdutora',
+      'Ajuste as almofadas nas pernas',
+      'Abra as pernas contra a resistência',
+      'Contraia os glúteos laterais',
+      'Retorne controladamente'
     ],
     sets: 3,
-    reps: '30-60 seg',
-    restTime: '45-60 seg',
-    difficulty: 'intermediário',
-    equipment: ['Parede'],
-    gifUrl: 'https://media.giphy.com/media/l41lFw057lAJQMwg0/giphy.gif',
+    reps: '15-20',
+    restTime: '45 seg',
+    difficulty: 'iniciante',
+    equipment: ['Máquina Abdutora'],
+    gifUrl: 'https://media.giphy.com/media/l41lO8vRXzSB0CkqQ/giphy.gif',
     tips: [
-      'Mantenha as costas sempre em contato com a parede',
-      'Distribua o peso igualmente nos dois pés',
-      'Respire normalmente durante o exercício'
+      'Movimento controlado',
+      'Foque nos glúteos laterais',
+      'Mantenha as costas eretas'
+    ],
+    gender: 'female'
+  },
+
+  // EXERCÍCIOS COMPLEMENTARES DE CARDIO
+  {
+    id: 'treadmill_hiit',
+    name: 'Esteira HIIT',
+    targetMuscles: ['Cardio', 'Pernas'],
+    instructions: [
+      'Aqueça 5 minutos em ritmo moderado',
+      'Alterne 1 min intenso com 2 min moderado',
+      'Repita por 15-20 minutos',
+      'Termine com 5 min de resfriamento',
+      'Mantenha postura ereta'
+    ],
+    sets: 1,
+    reps: '15-20 min',
+    restTime: '24h',
+    difficulty: 'intermediário',
+    equipment: ['Esteira'],
+    gifUrl: 'https://media.giphy.com/media/l41lO8vRXzSB0CkqQ/giphy.gif',
+    tips: [
+      'Não segure nas laterais da esteira',
+      'Respire de forma constante',
+      'Ajuste a inclinação gradualmente'
     ],
     gender: 'both'
   },
-  
-  // EXERCÍCIOS FOCADOS EM FORÇA PARA HOMENS
   {
-    id: 'pike_pushup',
-    name: 'Flexão Pike (Ombros)',
-    targetMuscles: ['Ombros', 'Tríceps', 'Core'],
+    id: 'elliptical',
+    name: 'Elíptico',
+    targetMuscles: ['Cardio', 'Corpo inteiro'],
     instructions: [
-      'Inicie em posição de prancha',
-      'Levante o quadril formando um "V" invertido',
-      'Desça a cabeça em direção ao chão',
-      'Empurre de volta à posição pike'
+      'Ajuste a resistência conforme seu nível',
+      'Mantenha postura ereta',
+      'Use os braços ativamente',
+      'Mantenha ritmo constante',
+      'Varie a resistência durante o treino'
     ],
-    sets: 3,
-    reps: '6-12',
-    restTime: '60-90 seg',
-    difficulty: 'avançado',
-    equipment: ['Peso corporal'],
-    gifUrl: 'https://media.giphy.com/media/l0ExayQDzrI2xOb8A/giphy.gif',
+    sets: 1,
+    reps: '20-30 min',
+    restTime: '24h',
+    difficulty: 'iniciante',
+    equipment: ['Elíptico'],
+    gifUrl: 'https://media.giphy.com/media/3CZ2iGe1ByKfhZxaD7/giphy.gif',
     tips: [
-      'Mantenha as pernas relativamente retas',
-      'Foque em usar os ombros para empurrar',
-      'Movimento controlado'
+      'Não se apoie excessivamente nas alças',
+      'Varie entre movimento para frente e para trás',
+      'Mantenha frequência cardíaca na zona alvo'
     ],
-    gender: 'male'
-  },
-  {
-    id: 'diamond_pushup',
-    name: 'Flexão Diamante',
-    targetMuscles: ['Tríceps', 'Peitoral'],
-    instructions: [
-      'Posição de flexão com mãos formando diamante',
-      'Polegares e indicadores se tocando',
-      'Desça mantendo os cotovelos próximos ao corpo',
-      'Empurre de volta à posição inicial'
-    ],
-    sets: 3,
-    reps: '5-12',
-    restTime: '60-90 seg',
-    difficulty: 'avançado',
-    equipment: ['Peso corporal'],
-    gifUrl: 'https://media.giphy.com/media/l0MYxei0lC8IUrleU/giphy.gif',
-    tips: [
-      'Mantenha os cotovelos próximos ao corpo',
-      'Movimento mais lento que flexão normal',
-      'Para iniciantes: apoie os joelhos'
-    ],
-    gender: 'male'
+    gender: 'both'
   }
 ]
 
-// Planos de treino baseados em divisões eficazes para perda de peso
+// Planos de treino atualizados com aparelhos de academia
 export const workoutPlans: WorkoutPlan[] = [
   {
     id: 'ab_split_male',
     name: 'Divisão AB - Homens',
-    description: 'Treino dividido em dois dias focado em perda de peso e ganho de força',
+    description: 'Treino com aparelhos de academia focado em perda de peso e ganho de força',
     targetGoal: 'Perda de peso e definição muscular',
     duration: '4-6 semanas',
     frequency: '4x por semana (AB-AB)',
@@ -311,35 +470,35 @@ export const workoutPlans: WorkoutPlan[] = [
     difficulty: 'intermediário',
     schedule: {
       'segunda': {
-        name: 'Treino A - Força e Cardio',
-        exercises: ['burpees', 'pushup', 'mountain_climbers', 'plank', 'pike_pushup'],
-        focusArea: 'Peito, Ombros, Core e Cardio',
-        duration: '35-45 min'
+        name: 'Treino A - Peito, Ombros e Tríceps',
+        exercises: ['bench_press', 'incline_dumbbell_press', 'pec_deck', 'shoulder_press_machine', 'tricep_pushdown'],
+        focusArea: 'Peito, Ombros e Tríceps',
+        duration: '45-60 min'
       },
       'terca': {
-        name: 'Treino B - Pernas e Glúteos',
-        exercises: ['squat_jump', 'lunges', 'wall_sit', 'jumping_jacks', 'glute_bridge'],
-        focusArea: 'Pernas, Glúteos e Cardio',
-        duration: '35-45 min'
+        name: 'Treino B - Pernas e Cardio',
+        exercises: ['leg_press', 'leg_extension', 'leg_curl', 'calf_raise_machine', 'treadmill_hiit'],
+        focusArea: 'Pernas e Condicionamento',
+        duration: '45-60 min'
       },
       'quinta': {
-        name: 'Treino A - Força e Cardio',
-        exercises: ['burpees', 'diamond_pushup', 'mountain_climbers', 'plank', 'pike_pushup'],
-        focusArea: 'Peito, Ombros, Core e Cardio',
-        duration: '35-45 min'
+        name: 'Treino A - Costas e Bíceps',
+        exercises: ['lat_pulldown', 'seated_cable_row', 'cable_bicep_curl', 'shoulder_press_machine', 'tricep_pushdown'],
+        focusArea: 'Costas, Bíceps e Ombros',
+        duration: '45-60 min'
       },
       'sexta': {
         name: 'Treino B - Pernas e Glúteos',
-        exercises: ['squat_jump', 'lunges', 'wall_sit', 'jumping_jacks', 'glute_bridge'],
+        exercises: ['leg_press', 'leg_extension', 'leg_curl', 'calf_raise_machine', 'elliptical'],
         focusArea: 'Pernas, Glúteos e Cardio',
-        duration: '35-45 min'
+        duration: '45-60 min'
       }
     }
   },
   {
     id: 'ab_split_female',
     name: 'Divisão AB - Mulheres',
-    description: 'Treino dividido em dois dias com foco em tonificação e perda de peso',
+    description: 'Treino com aparelhos focado em tonificação e perda de peso',
     targetGoal: 'Perda de peso, tonificação e definição',
     duration: '4-6 semanas',
     frequency: '4x por semana (AB-AB)',
@@ -347,76 +506,28 @@ export const workoutPlans: WorkoutPlan[] = [
     difficulty: 'iniciante',
     schedule: {
       'segunda': {
-        name: 'Treino A - Corpo Superior e Core',
-        exercises: ['pushup', 'mountain_climbers', 'plank', 'burpees', 'jumping_jacks'],
-        focusArea: 'Braços, Core e Cardio',
-        duration: '30-40 min'
+        name: 'Treino A - Corpo Superior',
+        exercises: ['incline_dumbbell_press', 'lat_pulldown', 'seated_cable_row', 'lateral_raise_machine', 'cable_bicep_curl'],
+        focusArea: 'Peito, Costas e Braços',
+        duration: '40-50 min'
       },
       'terca': {
         name: 'Treino B - Glúteos e Pernas',
-        exercises: ['squat_jump', 'lunges', 'glute_bridge', 'wall_sit', 'mountain_climbers'],
-        focusArea: 'Glúteos, Pernas e Core',
-        duration: '30-40 min'
+        exercises: ['leg_press', 'hip_thrust_machine', 'abductor_machine', 'leg_curl', 'calf_raise_machine'],
+        focusArea: 'Glúteos, Pernas e Tonificação',
+        duration: '40-50 min'
       },
       'quinta': {
-        name: 'Treino A - Corpo Superior e Core',
-        exercises: ['pushup', 'mountain_climbers', 'plank', 'burpees', 'jumping_jacks'],
-        focusArea: 'Braços, Core e Cardio',
-        duration: '30-40 min'
+        name: 'Treino A - Ombros e Braços',
+        exercises: ['shoulder_press_machine', 'lateral_raise_machine', 'tricep_pushdown', 'cable_bicep_curl', 'elliptical'],
+        focusArea: 'Ombros, Braços e Cardio',
+        duration: '40-50 min'
       },
       'sexta': {
-        name: 'Treino B - Glúteos e Pernas',
-        exercises: ['squat_jump', 'lunges', 'glute_bridge', 'wall_sit', 'mountain_climbers'],
-        focusArea: 'Glúteos, Pernas e Core',
-        duration: '30-40 min'
-      }
-    }
-  },
-  {
-    id: 'abc_split_advanced',
-    name: 'Divisão ABC - Avançado',
-    description: 'Treino de três dias para pessoas com mais experiência',
-    targetGoal: 'Perda de peso acelerada e condicionamento',
-    duration: '6-8 semanas',
-    frequency: '6x por semana (ABC-ABC)',
-    gender: 'both',
-    difficulty: 'avançado',
-    schedule: {
-      'segunda': {
-        name: 'Treino A - HIIT e Core',
-        exercises: ['burpees', 'mountain_climbers', 'jumping_jacks', 'plank'],
-        focusArea: 'Cardio intenso e Core',
-        duration: '25-35 min'
-      },
-      'terca': {
-        name: 'Treino B - Força Superior',
-        exercises: ['pushup', 'pike_pushup', 'diamond_pushup', 'plank'],
-        focusArea: 'Peito, Ombros, Tríceps',
-        duration: '30-40 min'
-      },
-      'quarta': {
-        name: 'Treino C - Pernas e Glúteos',
-        exercises: ['squat_jump', 'lunges', 'glute_bridge', 'wall_sit'],
-        focusArea: 'Pernas e Glúteos',
-        duration: '30-40 min'
-      },
-      'quinta': {
-        name: 'Treino A - HIIT e Core',
-        exercises: ['burpees', 'mountain_climbers', 'jumping_jacks', 'plank'],
-        focusArea: 'Cardio intenso e Core',
-        duration: '25-35 min'
-      },
-      'sexta': {
-        name: 'Treino B - Força Superior',
-        exercises: ['pushup', 'pike_pushup', 'diamond_pushup', 'plank'],
-        focusArea: 'Peito, Ombros, Tríceps',
-        duration: '30-40 min'
-      },
-      'sabado': {
-        name: 'Treino C - Pernas e Glúteos',
-        exercises: ['squat_jump', 'lunges', 'glute_bridge', 'wall_sit'],
-        focusArea: 'Pernas e Glúteos',
-        duration: '30-40 min'
+        name: 'Treino B - Glúteos e Cardio',
+        exercises: ['leg_press', 'hip_thrust_machine', 'abductor_machine', 'leg_extension', 'treadmill_hiit'],
+        focusArea: 'Glúteos, Pernas e Queima de Gordura',
+        duration: '40-50 min'
       }
     }
   }
