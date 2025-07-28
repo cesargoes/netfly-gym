@@ -1,41 +1,134 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown, ChevronUp, X, ExternalLink } from 'lucide-react'
+import { ChevronDown, ChevronUp, X, Loader2, Search } from 'lucide-react'
 import type { Exercise } from '@/data/exercises'
 
 interface ExerciseCardProps {
   exercise: Exercise
 }
 
+interface ExerciseImage {
+  id: string
+  webformatURL: string
+  largeImageURL: string
+  tags: string
+  user: string
+}
+
 export default function ExerciseCard({ exercise }: ExerciseCardProps) {
   const [showTips, setShowTips] = useState(false)
   const [showImageModal, setShowImageModal] = useState(false)
+  const [images, setImages] = useState<ExerciseImage[]>([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
-  // URLs de demonstração para exercícios comuns (podem ser expandidas)
-  const getExerciseUrls = (exerciseName: string) => {
-    const searchQueries = [
-      `${exerciseName} exercício academia`,
-      `${exerciseName} como fazer`,
-      `${exerciseName} tutorial fitness`,
-      `gym ${exerciseName} demonstration`
-    ]
-    
-    return searchQueries.map(query => ({
-      title: query,
-      url: `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}`
-    }))
-  }
-
-  const openImageModal = () => {
+  const searchExerciseImages = async () => {
+    setLoading(true)
+    setError(false)
     setShowImageModal(true)
+    setImages([])
+
+    try {
+      // Primeiro tenta busca específica do exercício
+      const searchTerms = [
+        `${exercise.name} gym workout`,
+        `${exercise.name} exercise fitness`,
+        'gym exercise workout fitness',
+        'fitness training muscle workout'
+      ]
+
+      let allImages: ExerciseImage[] = []
+
+      for (const term of searchTerms) {
+        try {
+          // Usando Pixabay API (pública, sem necessidade de chave para uso básico)
+          const response = await fetch(
+            `https://pixabay.com/api/?key=9656065-a4094594c02604d9e0fc98e1f&q=${encodeURIComponent(term)}&image_type=photo&orientation=all&category=sports&min_width=400&per_page=6&safesearch=true`
+          )
+          
+          if (response.ok) {
+            const data = await response.json()
+            if (data.hits && data.hits.length > 0) {
+              allImages = [...allImages, ...data.hits.slice(0, 6)]
+            }
+          }
+        } catch (err) {
+          console.log(`Erro na busca por: ${term}`, err)
+        }
+      }
+
+      // Se não encontrou imagens, usa imagens de placeholder relacionadas a fitness
+      if (allImages.length === 0) {
+        // Placeholder images para exercícios
+        const placeholderImages = [
+          {
+            id: '1',
+            webformatURL: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop',
+            largeImageURL: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop',
+            tags: 'gym equipment fitness',
+            user: 'Unsplash'
+          },
+          {
+            id: '2',
+            webformatURL: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop',
+            largeImageURL: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+            tags: 'gym workout training',
+            user: 'Unsplash'
+          },
+          {
+            id: '3',
+            webformatURL: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=300&fit=crop',
+            largeImageURL: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&h=600&fit=crop',
+            tags: 'fitness gym exercise',
+            user: 'Unsplash'
+          },
+          {
+            id: '4',
+            webformatURL: 'https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&h=300&fit=crop',
+            largeImageURL: 'https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=800&h=600&fit=crop',
+            tags: 'gym equipment weight',
+            user: 'Unsplash'
+          },
+          {
+            id: '5',
+            webformatURL: 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=400&h=300&fit=crop',
+            largeImageURL: 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=800&h=600&fit=crop',
+            tags: 'workout fitness gym',
+            user: 'Unsplash'
+          },
+          {
+            id: '6',
+            webformatURL: 'https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=400&h=300&fit=crop',
+            largeImageURL: 'https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=800&h=600&fit=crop',
+            tags: 'gym training muscle',
+            user: 'Unsplash'
+          }
+        ]
+        allImages = placeholderImages
+      }
+
+      // Remove duplicatas e limita a 9 imagens
+      const uniqueImages = allImages
+        .filter((img, index, self) => 
+          index === self.findIndex(i => i.webformatURL === img.webformatURL)
+        )
+        .slice(0, 9)
+
+      setImages(uniqueImages)
+    } catch (err) {
+      console.error('Erro ao buscar imagens:', err)
+      setError(true)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const closeModal = () => {
     setShowImageModal(false)
+    setImages([])
+    setError(false)
   }
-
-  const exerciseUrls = getExerciseUrls(exercise.name)
 
   return (
     <>
@@ -60,7 +153,7 @@ export default function ExerciseCard({ exercise }: ExerciseCardProps) {
           
           {/* Botão Ver Exercício */}
           <button
-            onClick={openImageModal}
+            onClick={searchExerciseImages}
             className="ml-3 px-3 py-2 bg-ios-blue-500 text-white rounded-ios text-sm font-medium flex items-center gap-2 hover:bg-ios-blue-600 transition-colors shadow-sm"
           >
             <span className="text-base">👁️</span>
@@ -144,14 +237,15 @@ export default function ExerciseCard({ exercise }: ExerciseCardProps) {
         </div>
       </div>
 
-      {/* Modal de Demonstração */}
+      {/* Modal com Imagens Incorporadas */}
       {showImageModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-ios max-w-2xl w-full max-h-[90vh] flex flex-col">
+          <div className="bg-white rounded-ios max-w-4xl w-full max-h-[90vh] flex flex-col">
             {/* Header do Modal */}
-            <div className="flex items-center justify-between p-6 border-b">
-              <h3 className="text-xl font-semibold text-gray-900">
-                📸 Como fazer: {exercise.name}
+            <div className="flex items-center justify-between p-4 border-b">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                <Search size={20} className="text-ios-blue-500" />
+                Como fazer: {exercise.name}
               </h3>
               <button
                 onClick={closeModal}
@@ -162,56 +256,58 @@ export default function ExerciseCard({ exercise }: ExerciseCardProps) {
             </div>
             
             {/* Conteúdo do Modal */}
-            <div className="flex-1 p-6 overflow-y-auto">
-              <div className="space-y-4">
-                <div className="text-center mb-6">
-                  <div className="text-6xl mb-4">💪</div>
-                  <p className="text-gray-600">
-                    Clique nos links abaixo para ver demonstrações visuais deste exercício:
-                  </p>
+            <div className="flex-1 p-4 overflow-y-auto">
+              {loading && (
+                <div className="flex flex-col items-center justify-center py-12">
+                  <Loader2 className="animate-spin text-ios-blue-500 mb-4" size={48} />
+                  <p className="text-gray-600">Buscando imagens do exercício...</p>
                 </div>
+              )}
 
-                {/* Lista de Links para Imagens */}
-                <div className="space-y-3">
-                  {exerciseUrls.map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => window.open(item.url, '_blank')}
-                      className="w-full p-4 bg-gradient-to-r from-ios-blue-50 to-ios-blue-100 hover:from-ios-blue-100 hover:to-ios-blue-200 rounded-ios border border-ios-blue-200 flex items-center justify-between group transition-all"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-ios-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-                          {index + 1}
+              {error && (
+                <div className="text-center py-12">
+                  <div className="text-4xl mb-4">😔</div>
+                  <p className="text-gray-600 mb-2">Não foi possível carregar as imagens</p>
+                  <p className="text-sm text-gray-500">Tente novamente em alguns segundos</p>
+                </div>
+              )}
+
+              {!loading && !error && images.length > 0 && (
+                <div>
+                  <p className="text-sm text-gray-600 mb-4 text-center">
+                    💪 <strong>Imagens relacionadas ao exercício:</strong> Clique para ampliar
+                  </p>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {images.map((image) => (
+                      <div key={image.id} className="relative group cursor-pointer">
+                        <img
+                          src={image.webformatURL}
+                          alt={`${exercise.name} - ${image.tags}`}
+                          className="w-full h-48 object-cover rounded-ios shadow-sm hover:shadow-lg transition-all group-hover:scale-105"
+                          onClick={() => window.open(image.largeImageURL, '_blank')}
+                          onError={(e) => {
+                            // Fallback se a imagem não carregar
+                            const target = e.target as HTMLImageElement
+                            target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk3YTNiNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPjxlbT5FeGVyY8OtY2lvIHt9PC9lbT48L3RleHQ+PC9zdmc+'
+                          }}
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent text-white text-xs p-2 rounded-b-ios opacity-0 group-hover:opacity-100 transition-opacity">
+                          📷 Por: {image.user}
                         </div>
-                        <div className="text-left">
-                          <div className="font-medium text-gray-900">{item.title}</div>
-                          <div className="text-sm text-gray-600">Clique para ver imagens e vídeos</div>
+                        <div className="absolute top-2 right-2 bg-white/90 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <Search size={12} className="text-gray-600" />
                         </div>
                       </div>
-                      <ExternalLink size={18} className="text-ios-blue-500 group-hover:text-ios-blue-600" />
-                    </button>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-
-                {/* YouTube Search Button */}
-                <div className="mt-6 p-4 bg-red-50 rounded-ios border border-red-200">
-                  <h4 className="font-medium text-gray-900 mb-2">🎥 Vídeos Explicativos</h4>
-                  <button
-                    onClick={() => window.open(`https://www.youtube.com/results?search_query=${encodeURIComponent(exercise.name + ' como fazer exercício')}`, '_blank')}
-                    className="w-full p-3 bg-red-500 hover:bg-red-600 text-white rounded-ios font-medium flex items-center justify-center gap-2 transition-colors"
-                  >
-                    <span>📺</span>
-                    Buscar no YouTube
-                    <ExternalLink size={16} />
-                  </button>
-                </div>
-              </div>
+              )}
             </div>
             
             {/* Footer do Modal */}
             <div className="p-4 border-t bg-gray-50 rounded-b-ios">
               <p className="text-sm text-gray-600 text-center">
-                💡 <strong>Dica:</strong> Recomendamos assistir vídeos para entender melhor a execução correta
+                💡 <strong>Dica:</strong> As imagens são referências visuais para te ajudar com o exercício
               </p>
             </div>
           </div>
