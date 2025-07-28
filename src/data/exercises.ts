@@ -51,7 +51,7 @@ export const exercises: Exercise[] = [
     restTime: '60-90 seg',
     difficulty: 'intermediário',
     equipment: ['Banco', 'Barra', 'Anilhas'],
-    gifUrl: 'https://media.giphy.com/media/1qfDU4MJv9xoGtEKT8/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0025.gif',
     tips: [
       'Não arqueie excessivamente as costas',
       'Mantenha os pés firmes no chão',
@@ -75,7 +75,7 @@ export const exercises: Exercise[] = [
     restTime: '60 seg',
     difficulty: 'iniciante',
     equipment: ['Banco Inclinado', 'Halteres'],
-    gifUrl: 'https://media.giphy.com/media/2A75RyXVzzSI2bx4Gj/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0349.gif',
     tips: [
       'Não desça os halteres muito baixo',
       'Mantenha os cotovelos levemente para dentro',
@@ -99,7 +99,7 @@ export const exercises: Exercise[] = [
     restTime: '45 seg',
     difficulty: 'iniciante',
     equipment: ['Máquina Voador'],
-    gifUrl: 'https://media.giphy.com/media/l0HlPystfePnAI3G8/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0844.gif',
     tips: [
       'Não force demais a amplitude',
       'Mantenha os ombros para trás',
@@ -125,7 +125,7 @@ export const exercises: Exercise[] = [
     restTime: '60-90 seg',
     difficulty: 'iniciante',
     equipment: ['Polia Alta', 'Barra'],
-    gifUrl: 'https://media.giphy.com/media/3CZ2iGe1ByKfhZxaD7/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0586.gif',
     tips: [
       'Não use impulso do corpo',
       'Foque em puxar com as costas, não com os braços',
@@ -149,7 +149,7 @@ export const exercises: Exercise[] = [
     restTime: '60 seg',
     difficulty: 'iniciante',
     equipment: ['Polia Baixa', 'Cabo', 'Banco'],
-    gifUrl: 'https://media.giphy.com/media/SVcsGOgpUP3NniEHBN/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0840.gif',
     tips: [
       'Mantenha as costas eretas',
       'Não balance o tronco',
@@ -175,7 +175,7 @@ export const exercises: Exercise[] = [
     restTime: '90 seg',
     difficulty: 'iniciante',
     equipment: ['Leg Press'],
-    gifUrl: 'https://media.giphy.com/media/l41lO8vRXzSB0CkqQ/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0599.gif',
     tips: [
       'Não desça além de 90 graus nos joelhos',
       'Mantenha os joelhos alinhados com os pés',
@@ -199,7 +199,7 @@ export const exercises: Exercise[] = [
     restTime: '45 seg',
     difficulty: 'iniciante',
     equipment: ['Cadeira Extensora'],
-    gifUrl: 'https://media.giphy.com/media/3o7qE1YN7aBOFPRw8E/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0585.gif',
     tips: [
       'Não use impulso',
       'Contraia bem o quadríceps no topo',
@@ -223,7 +223,7 @@ export const exercises: Exercise[] = [
     restTime: '45 seg',
     difficulty: 'iniciante',
     equipment: ['Mesa Flexora'],
-    gifUrl: 'https://media.giphy.com/media/l0ExayQDzrI2xOb8A/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0611.gif',
     tips: [
       'Mantenha os quadris pressionados na mesa',
       'Não levante o tronco',
@@ -247,7 +247,7 @@ export const exercises: Exercise[] = [
     restTime: '30 seg',
     difficulty: 'iniciante',
     equipment: ['Aparelho de Panturrilha'],
-    gifUrl: 'https://media.giphy.com/media/l41lFw057lAJQMwg0/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/1368.gif',
     tips: [
       'Use amplitude completa de movimento',
       'Pause na contração máxima',
@@ -273,7 +273,7 @@ export const exercises: Exercise[] = [
     restTime: '60 seg',
     difficulty: 'iniciante',
     equipment: ['Máquina de Desenvolvimento'],
-    gifUrl: 'https://media.giphy.com/media/l0MYxei0lC8IUrleU/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0733.gif',
     tips: [
       'Mantenha as costas apoiadas',
       'Não force os ombros além da amplitude natural',
@@ -297,7 +297,7 @@ export const exercises: Exercise[] = [
     restTime: '45 seg',
     difficulty: 'iniciante',
     equipment: ['Máquina de Elevação Lateral'],
-    gifUrl: 'https://media.giphy.com/media/2A75RyXVzzSI2bx4Gj/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0722.gif',
     tips: [
       'Não eleve além da linha dos ombros',
       'Mantenha os ombros para baixo',
@@ -323,7 +323,7 @@ export const exercises: Exercise[] = [
     restTime: '45 seg',
     difficulty: 'iniciante',
     equipment: ['Polia Baixa', 'Barra'],
-    gifUrl: 'https://media.giphy.com/media/3CZ2iGe1ByKfhZxaD7/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0207.gif',
     tips: [
       'Não balance o corpo',
       'Mantenha os cotovelos junto ao corpo',
@@ -347,7 +347,7 @@ export const exercises: Exercise[] = [
     restTime: '45 seg',
     difficulty: 'iniciante',
     equipment: ['Polia Alta', 'Corda ou Barra'],
-    gifUrl: 'https://media.giphy.com/media/l0HlPystfePnAI3G8/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/1254.gif',
     tips: [
       'Mantenha os cotovelos junto ao corpo',
       'Não use o peso do corpo',
@@ -373,7 +373,7 @@ export const exercises: Exercise[] = [
     restTime: '60 seg',
     difficulty: 'iniciante',
     equipment: ['Máquina de Glúteos'],
-    gifUrl: 'https://media.giphy.com/media/3o7TKqm1mNujcBPSpy/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/0416.gif',
     tips: [
       'Foque na contração dos glúteos',
       'Não arqueie as costas excessivamente',
@@ -397,7 +397,7 @@ export const exercises: Exercise[] = [
     restTime: '45 seg',
     difficulty: 'iniciante',
     equipment: ['Máquina Abdutora'],
-    gifUrl: 'https://media.giphy.com/media/l41lO8vRXzSB0CkqQ/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/1300.gif',
     tips: [
       'Movimento controlado',
       'Foque nos glúteos laterais',
@@ -423,7 +423,7 @@ export const exercises: Exercise[] = [
     restTime: '24h',
     difficulty: 'intermediário',
     equipment: ['Esteira'],
-    gifUrl: 'https://media.giphy.com/media/l41lO8vRXzSB0CkqQ/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/2087.gif',
     tips: [
       'Não segure nas laterais da esteira',
       'Respire de forma constante',
@@ -447,7 +447,7 @@ export const exercises: Exercise[] = [
     restTime: '24h',
     difficulty: 'iniciante',
     equipment: ['Elíptico'],
-    gifUrl: 'https://media.giphy.com/media/3CZ2iGe1ByKfhZxaD7/giphy.gif',
+    gifUrl: 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/2331.gif',
     tips: [
       'Não se apoie excessivamente nas alças',
       'Varie entre movimento para frente e para trás',
