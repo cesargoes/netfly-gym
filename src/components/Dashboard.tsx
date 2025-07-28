@@ -50,10 +50,6 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
                       month: 'long' 
                     })}
                   </p>
-                  {/* Debug info - remover em produção */}
-                  <p className="text-xs text-ios-gray-400 mt-1">
-                    Debug: Dia detectado = "{currentDay}"
-                  </p>
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-ios-blue">
@@ -112,7 +108,7 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
               </div>
               <div className="ios-card text-center">
                 <div className="text-2xl font-bold text-green-600 mb-1">
-                  30-45
+                  40-60
                 </div>
                 <div className="text-sm text-ios-gray-600">Min/treino</div>
               </div>
