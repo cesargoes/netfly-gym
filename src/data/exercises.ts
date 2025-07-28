@@ -449,16 +449,16 @@ export const workoutPlans: WorkoutPlan[] = [
         duration: '30 minutos'
       },
       'quinta': {
-        name: 'Treino A - Peito, Ombros e Tríceps',
-        exercises: ['supino-reto', 'supino-inclinado-halteres', 'desenvolvimento-maquina', 'elevacao-lateral-maquina', 'triceps-polia-alta', 'esteira-hiit'],
-        focusArea: 'Tronco superior e cardio HIIT',
-        duration: '50 minutos'
-      },
-      'sexta': {
         name: 'Treino B - Costas, Pernas e Bíceps',
         exercises: ['leg-press', 'puxada-polia-alta', 'remada-sentada-polia', 'cadeira-extensora', 'mesa-flexora', 'rosca-direta-polia'],
         focusArea: 'Costas, pernas e bíceps',
         duration: '55 minutos'
+      },
+      'sexta': {
+        name: 'Treino A - Peito, Ombros e Tríceps',
+        exercises: ['supino-reto', 'supino-inclinado-halteres', 'desenvolvimento-maquina', 'elevacao-lateral-maquina', 'triceps-polia-alta', 'esteira-hiit'],
+        focusArea: 'Tronco superior e cardio HIIT',
+        duration: '50 minutos'
       },
       'sabado': {
         name: 'Cardio + Panturrilha',
@@ -503,16 +503,16 @@ export const workoutPlans: WorkoutPlan[] = [
         duration: '25 minutos'
       },
       'quinta': {
+        name: 'Treino B - Peito, Costas e Braços',
+        exercises: ['supino-inclinado-halteres', 'puxada-polia-alta', 'remada-sentada-polia', 'desenvolvimento-maquina', 'elevacao-lateral-maquina', 'triceps-polia-alta'],
+        focusArea: 'Tronco superior',
+        duration: '45 minutos'
+      },
+      'sexta': {
         name: 'Treino A - Glúteos, Pernas e Core',
         exercises: ['leg-press', 'elevacao-quadril-maquina', 'cadeira-extensora', 'mesa-flexora', 'abducao-maquina', 'panturrilha-aparelho'],
         focusArea: 'Membros inferiores e glúteos',
         duration: '50 minutos'
-      },
-      'sexta': {
-        name: 'Treino B - Peito, Costas e Braços',
-        exercises: ['supino-inclinado-halteres', 'puxada-polia-alta', 'remada-sentada-polia', 'desenvolvimento-maquina', 'elevacao-lateral-maquina', 'rosca-direta-polia'],
-        focusArea: 'Tronco superior',
-        duration: '45 minutos'
       },
       'sabado': {
         name: 'Cardio Moderado',
